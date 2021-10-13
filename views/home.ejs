@@ -1,0 +1,49 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Calculator</title>
+</head>
+<body> -->
+<%- include("partials/header"); -%>
+    <div class="all">
+    <form action="/love" method="post">
+        <div class="content">
+            <h1>Add New Entry</h1><br>
+            <input type="number" name="durationMin" placeholder="Duration Minutes" step=".01">
+            <input type="number" name="durationSec" placeholder="Duration Seconds" step=".01">
+            <input type="number" name="distance" placeholder="Distance" step=".01">
+            <input type="number" name="caloriesBurned" placeholder="Calories Burned">
+            <input type="number" name="weekNum" placeholder="Week Number">
+            <input type="date" name="date" placeholder="Date">        
+            <button type="submit" class="red btn">Submit</button>
+        </div>        
+    </form> 
+    
+    <a href="/entries" class="btn blue content all_entries">All Entries</a>
+    </div>
+
+    <style>
+        .all {
+            position: relative;
+            margin-top: 350px;
+        }
+
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .all_entries {
+            position: absolute;
+            top: 300px;
+        }
+
+    </style>
+<%- include("partials/footer"); -%>
+
+<!-- </body>
+</html> -->

@@ -1,0 +1,61 @@
+<%- include("partials/header"); -%>
+
+
+
+<div class="container">
+   <h1>All Entries</h1>
+
+   <table>
+      <tr>
+         <th>Duration (min)</th>
+         <th>Distance (km)</th>
+         <th>Calories Burned (kcal)</th>
+         <th>Week Number</th>
+         <th>Date</th>
+      </tr>
+      <%  love.forEach(function(love){ %>
+      <tr>
+         <td><%= love.durationMin %></td>
+         <td><%= love.distance %></td>
+         <td><%= love.caloriesBurned %></td>
+         <td><%= love.weekNum %></td>
+         <td><%= love.dateOfExercise %></td>
+      </tr>
+      <% }) %>
+   </table>
+
+   <%  love.forEach(function(love){ %>
+      <% durationSum = durationSum + love.durationMin %>
+      <% distanceSum = distanceSum + love.distance %>
+      <% caloriesSum = caloriesSum + love.caloriesBurned %>
+   <% }) %>
+
+   <div class="agg">
+      <h3>Total Exercise Time: <%= Math.round((durationSum + Number.EPSILON) * 100) / 100 %> min</h3>
+      <h3>Total Distance Covered: <%= Math.round((distanceSum + Number.EPSILON) * 100) / 100 %> km</h3>
+      <h3>Total Calories Burned: <%= Math.round((caloriesSum + Number.EPSILON) * 100) / 100 %> kcal</h3>
+   </div>
+
+   <a href="/" class="btn green">Add New Entry</a>
+</div>
+
+<style>
+   .container {
+      margin-top: 100px;
+   }
+
+   .agg {
+      margin-top: 100px;
+   }
+
+   .btn {
+      margin-top: 20px;
+      margin-bottom: 50px;
+   }
+
+   table {
+      font-size: 23px;
+   }
+</style>
+
+<%- include("partials/footer"); -%>
